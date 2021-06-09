@@ -1,9 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const {
+  getLanding,
+  getKeyManager, postKey, putKey, deleteKey,
+} = require('../controller/index');
+
+// GET home page : /
+router.get('/', getLanding);
+
+// GET Key Manager: /key-manager
+router.get('/key-manager', getKeyManager);
+
+// POST key: /key-manager
+router.post('/key-manager', postKey);
+
+// PUT key: /:id
+router.put('/:id', putKey);
+
+// DELETE key: /:id
+router.delete('/:id', deleteKey);
 
 module.exports = router;
