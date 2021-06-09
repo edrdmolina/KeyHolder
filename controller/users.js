@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const util = require('util');
 
 
 module.exports = {
@@ -43,11 +44,19 @@ module.exports = {
             res.redirect('/users/register');
         }
     },
-    getProfile(req, res, next) {
-        res.render('users/profile');
+    getSettings(req, res, next) {
+        res.render('users/settings');
     },
-    putProfile(req, res, next) {
-        res.send('put profile form')
+    async putSettings(req, res, next) {
+        const { user } = res.locals;
+        const { username, email } = req.body;
+        if (username) user.username = username;
+        if (email) user.email = email;
+        await user.save()
+        const login = util.promisify(req.login.bind(req));
+        await login(user);
+        req.flash('success', 'You have succesffuly changed your user information.')
+        res.redirect('/users/settings');
     }
     
 }
