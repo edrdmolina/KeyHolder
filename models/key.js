@@ -7,10 +7,14 @@ const KeySchema = new Schema({
         unique: true,
         required: true,
     },
-    password: {
+    key: {
         type: String,
         required: true,
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 })
 
 module.exports = mongoose.model('Key', KeySchema);

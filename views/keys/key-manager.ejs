@@ -1,3 +1,45 @@
 <% layout('layouts/boilerplate') -%>
 
 <h1>KEY MANAGER INDEX</h1>
+<h2>Add new key</h2>
+<form action="/key-manager" method="POST">
+    <div class="form-group">
+        <label for="title">Account Title</label>
+        <input type="text" id="title" name="title" required aria-required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="key">Key</label>
+        <input type="password" id="key" name="key" class="form-control" required aria-required>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<% if (keys.length) { %> 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table>
+                    <tbody>
+                        <% for (let key of keys) { %>
+                            <tr>
+                                <td>
+                                    <%= key.title %>
+                                </td>
+                                <td>
+                                    <%= key.key %>
+                                </td>
+                                <td>
+                                    <form action="/<%= key._id %>?_method=DELETE" method="POST">
+                                        <button type="submit">X</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<% } else { %>
+    <h3>No Keys added yet!</h3>
+<% } %> 
