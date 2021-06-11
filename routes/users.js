@@ -3,11 +3,11 @@ const router = express.Router();
 const passport = require('passport')
 const {
     catchAsync, isValidPassword,
-    changePassword,
+    changePassword, isLoggedIn
 } = require('../middleware')
 
 const { 
-    getLogin, postLogin,
+    getLogin, postLogin, getLogout,
     getRegister, postRegister,
     getSettings, putSettings,
 } = require('../controller/users');
@@ -19,6 +19,9 @@ router.get('/login', getLogin);
 // POST login /users/login
 router.post('/login', catchAsync(postLogin)); 
 
+// GET logout /users/logout
+router.get('/logout', isLoggedIn, getLogout);
+
 // GET register /users/register
 router.get('/register', getRegister);
 
@@ -26,7 +29,7 @@ router.get('/register', getRegister);
 router.post('/register', catchAsync(postRegister));
 
 // GET profile /users/profile
-router.get('/settings', getSettings);
+router.get('/settings', isLoggedIn, getSettings);
 
 // PUT profile /users/profile
 router.put('/settings', 

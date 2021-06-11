@@ -20,6 +20,7 @@ module.exports = {
         res.redirect('/key-manager');
     },
     putKey(req, res, next) {
+        // TODO
         res.send('Put key');
     },
     async deleteKey(req, res, next) {
