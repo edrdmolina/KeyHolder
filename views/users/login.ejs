@@ -1,20 +1,26 @@
 <% layout('layouts/boilerplate') -%>
 
-<h1>LOGIN PAGE</h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-md-8 my-3">
+            <h1 class="text-center">WELCOME BACK!</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 rounded login-form text-white shadow-lg p-5">
             <form action="/users/login" method="POST">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input class="form-control" type="text" name="username" id="username" required aria-required>
+                    <input class="form-control bg-dark text-white" type="text" name="username" id="username" required aria-required>
                 </div> 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input class="form-control" type="password" name="password" id="password" required aria-required="">
+                    <input class="form-control bg-dark text-white" type="password" name="password" id="password" required aria-required="">
                 </div>
-                <button class="btn btn-primary" type="submit">Login</button>
+                <div>
+                    <button class="btn btn-outline-dark text-white shadow" type="submit">Login</button>
+                </div>
             </form>
         </div>
     </div>
