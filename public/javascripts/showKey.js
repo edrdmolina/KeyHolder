@@ -12,9 +12,9 @@ showKeyBtn.addEventListener('click', function (e) {
 
 const showKeyIndexBtns = document.querySelectorAll('[data-key-visibility]');
 
-showKeyIndexBtns.forEach((key) => {
+showKeyIndexBtns.forEach((key, i) => {
     key.addEventListener('click', (e) => {
-        let input = key.previousElementSibling;
+        let input = document.querySelector(`#key${i}`)
         if(input.type === 'text') {
             input.type = 'password'
         } else if(input.type === 'password') {
