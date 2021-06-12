@@ -1,0 +1,36 @@
+<div class="modal fade" id="newKeyModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0"">
+                <h5 class="modal-title">ADD NEW KEY</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="text-white" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/key-manager" method="POST">
+                <div class="modal-body border-0">
+                    <div class="form-group">
+                        <label for="title">Account Title</label>
+                        <input type="text" id="title" name="title" required aria-required class="form-control text-white bg-dark">
+                    </div>
+                    <label for="key">Key(Password)</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-light" type="button" id="randomKey" data-toggle="tooltip" data-placement="bottom" title="Random Key"><i class="fas fa-random"></i></button>
+                        </div>
+                        <input type="password" id="key" name="key" class="form-control bg-dark text-white" autocomplete="on" required aria-required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light" type="button" id="showKey" data-toggle="tooltip" data-placement="bottom" title="Show Key"><i class="far fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <button class="btn btn-outline-light btn-sm" data-dismiss="modal">CANCEL</button>
+                        <button type="submit" class="btn btn-sm btn-outline-light">SAVE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

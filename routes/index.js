@@ -13,13 +13,13 @@ const {
 router.get('/', getLanding);
 
 // GET Key Manager: /key-manager
-router.get('/key-manager',isLoggedIn, catchAsync(getKeyManager));
+router.get('/key-manager', isLoggedIn, catchAsync(getKeyManager));
 
 // POST key: /key-manager
-router.post('/key-manager',isLoggedIn, catchAsync(postKey));
+router.post('/key-manager', isLoggedIn, catchAsync(postKey));
 
 // PUT key: /:id
-router.put('/:id', putKey);
+router.put('/:id', isLoggedIn, catchAsync(putKey));
 
 // DELETE key: /:id
 router.delete('/:id', isLoggedIn, catchAsync(deleteKey));

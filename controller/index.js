@@ -19,9 +19,12 @@ module.exports = {
         req.flash('success', 'New key added!')
         res.redirect('/key-manager');
     },
-    putKey(req, res, next) {
-        // TODO
-        res.send('Put key');
+    async putKey(req, res, next) {
+        const { id } = req.params;
+        const key = await Keys.findByIdAndUpdate(id, req.body);
+        await key.save()
+        req.flash('success', 'Successfully updated key!');
+        res.redirect('/key-manager');
     },
     async deleteKey(req, res, next) {
         const { id } = req.params;

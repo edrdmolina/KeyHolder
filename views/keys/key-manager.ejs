@@ -15,7 +15,7 @@
             <% if (keys.length) { %>
             <div class="row justify-content-between mb-3">
                 <h3 class="display-5 d-inline">Keys Saved</h3>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#newKeyModal">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
@@ -25,30 +25,26 @@
                     <th>
                         Title
                     </th>
-                    <th colspan="3">
+                    <th>
                         Key
                     </th>
                 </thead>
                 <tbody>
-                    <% for (let key of keys) { %>
+                    <% keys.forEach((key, i) => { %>
                         <tr>
                             <td>
                                 <%= key.title %>
                             </td>
                             <td>
-                                <input class="hidden-key text-white" type="password" value="<%= key.key %>" disabled>
-                            </td>
-                            <td>
-                                <i class="far fa-eye fa-2x key-visibility rounded-circle data-toggle="tooltip" data-placement="bottom" title="Show Key" data-key-visibility></i>
-                            </td>
-                            <td class="">
-                                <div class="dropdown">
+                                <input class="hidden-key text-white" type="password" id="key<%= i %>" value="<%= key.key %>" disabled>
+                                <i class="far fa-eye key-visibility rounded-circle ml-3" data-toggle="tooltip" data-placement="bottom" title="Show Key" data-key-visibility></i>
+                                <div class="dropdown d-inline ml-3">
                                     <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-2x key-settings rounded"></i>
+                                        <i class="fas fa-ellipsis-v key-settings rounded"></i>
                                     </a>
                                     <div class="dropdown-menu rounded" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Copy</a>
-                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" data-key-copy href="#">Copy</a>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editKeyModal<%= i %>">Edit</a>
                                         <form action="/<%= key._id %>?_method=DELETE" method="POST">
                                             <input class="dropdown-item" type="submit" value="Remove">
                                         </form>
@@ -56,7 +52,44 @@
                                 </div>
                             </td>
                         </tr>
-                    <% } %> 
+                        <!-- EDIT MODAL FOR EACH KEY -->
+                        <div class="modal fade" id="editKeyModal<%= i %>" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header border-0"">
+                                        <h5 class="modal-title">EDIT KEY</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span class="text-white" aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="/<%= key._id %>?_method=PUT" method="POST">
+                                        <div class="modal-body border-0">
+                                            <div class="form-group">
+                                                <label for="title">Account Title</label>
+                                                <input type="text" id="titleEdit<%= i %>" name="title" value="<%= key.title %>" required aria-required class="form-control text-white bg-dark">
+                                            </div>
+                                            <label for="key">Key(Password)</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-outline-light" type="button" id="randomKeyEdit<%= i %>" data-key-edit-randomize data-toggle="tooltip" data-placement="bottom" title="Random Key"><i class="fas fa-random"></i></button>
+                                                </div>
+                                                <input type="password" id="keyEdit<%= i %>" name="key" class="form-control bg-dark text-white" value="<%= key.key %>" required aria-required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-light" type="button" id="showKeyEdit<%= i %>" data-key-edit-show data-toggle="tooltip" data-placement="bottom" title="Show Key"><i class="far fa-eye"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div>
+                                                <button class="btn btn-outline-light btn-sm" data-dismiss="modal">CANCEL</button>
+                                                <button type="submit" class="btn btn-sm btn-outline-light">SAVE</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>                        
+                    <% }) %> 
                 </tbody>
             </table>
             <% } else { %>
@@ -66,39 +99,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form action="/key-manager" method="POST">
-                <div class="modal-header border-0"">
-                    <h5 class="modal-title">ADD NEW KEY</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="text-white" aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body border-0">
-                    <div class="form-group">
-                        <label for="title">Account Title</label>
-                        <input type="text" id="title" name="title" required aria-required class="form-control text-white bg-dark">
-                    </div>
-                    <label for="key">Key(Password)</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-light" type="button" id="button-addon1" data-toggle="tooltip" data-placement="bottom" title="Random Key"><i class="fas fa-random"></i></button>
-                        </div>
-                        <input type="password" id="key" name="key" class="form-control bg-dark text-white" required aria-required>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-light" type="button" id="button-addon2" data-toggle="tooltip" data-placement="bottom" title="Show Key"><i class="far fa-eye"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div>
-                        <button class="btn btn-outline-light btn-sm" data-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn btn-sm btn-outline-light">SAVE</button>
-                    </div>
-                </div>
-            </form> 
-        </div>
-    </div>
-</div>
+<%- include('../modals/newKeyModal') %>
+
+<script src="/javascripts/randomKey.js"></script>
+<script src="/javascripts/showKey.js"></script>
+<script src="/javascripts/copyText.js"></script>
