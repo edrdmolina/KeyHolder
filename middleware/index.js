@@ -34,6 +34,13 @@ const middleware = {
             next();
         }
     },
+    isLoggedIn: (req, res, next) => {
+        if(!req.isAuthenticated()) {
+            req.flash('error', 'You must be logged in first.')
+            res.redirect('/users/login');
+        }
+        next();
+    }
 
 }
 

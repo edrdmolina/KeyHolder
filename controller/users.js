@@ -22,6 +22,11 @@ module.exports = {
             res.redirect('/key-manager');
         })
     },
+    getLogout(req, res, next) {
+        req.logout();
+        req.flash('success', 'You have logged out.');
+        res.redirect('/')
+    },
     getRegister(req, res, next) {
         res.render('users/register');
     },
@@ -57,6 +62,5 @@ module.exports = {
         await login(user);
         req.flash('success', 'You have succesffuly changed your user information.')
         res.redirect('/users/settings');
-    }
-    
+    },
 }

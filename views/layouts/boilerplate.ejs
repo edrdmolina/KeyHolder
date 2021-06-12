@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Holder</title>
+
+     <!-- BOOTSTRAP 4.6 CSS -->
+     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+     <!-- CUSTOM CSS -->
+     <link rel="stylesheet" href="/stylesheets/style.css">
+     <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/d74a8eac50.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <main>
-        <%- include('../partials/navbar') %> 
+    <%- include('../partials/navbar') %>
+    <main class="m-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8">
@@ -18,5 +26,14 @@
         </div>
         <%- body %> 
     </main>
+    <%- include('../partials/footer') %>
+    
+    <!-- JQUERY -->
+    <script src="/javascripts/jquery.js"></script>
+    <!-- POPPER -->
+    <!-- <script src="/javascripts/popper.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP 4.6 JS -->
+    <script src="/javascripts/bootstrap.min.js"></script>
 </body>
 </html>

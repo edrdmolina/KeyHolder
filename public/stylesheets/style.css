@@ -1,8 +1,52 @@
 body {
-  padding: 50px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.805), rgba(255,0,0,0.805));
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.login-form {
+  background: rgba(101, 101, 101, 0.463);
+}
+
+h1 {
+  color: rgba(229, 229, 229, 0.737);
+}
+
+html {
+  background: rgb(0, 0, 0);
+}
+
+.hidden-key {
+  background: none;
+  
+}
+
+.key-visibility:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.219);
+}
+
+.key-settings:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.219);
+}
+
+.key-settings {
+  color: white;
+}
+
+.dropdown-menu {
+  background: rgba(27, 27, 27, 0.511);
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.modal-content {
+  background-color: rgba(59, 59, 59, 0.774);
+  color: white;
 }
