@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.805), rgba(255,0,0,0.805));
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
 }
 
 a {
