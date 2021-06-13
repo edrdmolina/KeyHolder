@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6 rounded login-form text-white shadow-lg px-5 pt-4 my-3">
+        <div class="col-md-10 rounded login-form text-white shadow-lg px-5 pt-4 my-3">
             <div class="row justify-content-between mb-3">
                 <h3 class="display-5 d-inline">Keys Saved</h3>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#newKeyModal">
@@ -20,9 +20,9 @@
             </div>
         </div>
     </div>
-    <% if (keys.length) { %>
+    <% if (keys) { %>
     <div class="row justify-content-center text-white">
-        <div class="col-md-6 rounded shadow-lg login-form p-3">
+        <div class="col-md-10 rounded shadow-lg login-form p-3">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-4">
                     Title
@@ -33,17 +33,17 @@
             </div>
             <% keys.forEach((key, i) => { %>
             <div class="row justify-content-around justify-content-md-center my-3">
-                <div class="col-12 col-md-4">
+                <div class="col-12 my-2 col-md-4">
                     <%= key.title %>
                 </div>
-                <div class="col-4">
-                    <input class="hidden-key text-white" type="password" id="key<%= i %>" value="<%= key.key %>" size="13" disabled>
+                <div class="col-8 my-2 col-md-6">
+                    <input class="hidden-key text-white" type="password" id="key<%= i %>" value="<%= key.key %>" size="15" disabled>
                 </div>
-                <div class="col-1">
-                    <i class="far fa-eye key-visibility rounded-circle ml-3" data-toggle="tooltip" data-placement="bottom" title="Show Key" data-key-visibility></i>
+                <div class="col-1 my-2">
+                    <i class="far fa-eye key-visibility rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Show Key" data-key-visibility></i>
                 </div>
-                <div class="col-1">
-                    <div class="dropleft d-inline ml-3">
+                <div class="col-1 my-2">
+                    <div class="dropleft d-inline">
                         <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v key-settings rounded"></i>
                         </a>

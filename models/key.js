@@ -3,13 +3,24 @@ const Schema = mongoose.Schema;
 
 const KeySchema = new Schema({
     title: {
-        type: String,
-        unique: true,
-        required: true,
+        iv: {
+            type: String,
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        }
     },
     key: {
-        type: String,
-        required: true,
+        iv: {
+            type: String,
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        }
     },
     user: {
         type: Schema.Types.ObjectId,
