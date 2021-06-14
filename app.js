@@ -15,6 +15,8 @@ const passport = require('passport');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
 
 const User = require('./models/user');
 
@@ -49,6 +51,10 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(mongoSanitize());
+app.use(helmet({
+  contentSecurityPolicy: false
+}));
 
 const secret = process.env.SECRET || 'thisisasecret';
 const store = MongoStore.create({

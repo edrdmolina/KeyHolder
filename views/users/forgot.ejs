@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') -%>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 my-3">
+            <h1 class="text-center">Forgot Password?</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 rounded login-form text-white shadow-lg p-5">
+            <form action="/users/forgot?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control bg-dark text-white" type="email" name="email" id="email" autofocus required aria-required>
+                </div> 
+                <div class="row justify-content-between ml-1">
+                    <button class="btn btn-outline-dark text-white shadow" type="submit">Reset Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

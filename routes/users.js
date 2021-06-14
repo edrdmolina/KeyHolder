@@ -10,6 +10,8 @@ const {
     getLogin, postLogin, getLogout,
     getRegister, postRegister,
     getSettings, putSettings,
+    getForgot, putForgot,
+    getReset, putReset,
 } = require('../controller/users');
 
 
@@ -36,5 +38,17 @@ router.put('/settings',
     catchAsync(isValidPassword), 
     catchAsync(changePassword), 
     catchAsync(putSettings));
+
+// GET forgot PW /users/forgot
+router.get('/forgot', getForgot);
+
+// PUT forgot PW /users/forgot
+router.put('/forgot', catchAsync(putForgot));
+
+// GET reset PW /users/reset
+router.get('/reset/:token', catchAsync(getReset));
+
+// PUT reset PWN /users/reser
+router.put('/reset/:token', catchAsync(putReset));
 
 module.exports = router;

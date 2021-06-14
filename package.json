@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.4",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.4.1",
     "cookie-parser": "~1.4.4",
@@ -14,7 +15,9 @@
     "ejs": "~2.6.1",
     "ejs-mate": "^3.0.0",
     "express": "~4.16.1",
+    "express-mongo-sanitize": "^2.1.0",
     "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.12.13",
