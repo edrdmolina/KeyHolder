@@ -26,12 +26,15 @@
                     <label for="passwordConfirmation">Confirm Password</label>
                     <input class="form-control bg-dark text-white" type="password" name="passwordConfirmation" id="passwordConfirmation">
                 </div>
+                <div id="validationMessage" class="mb-2"></div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input class="form-control bg-dark text-white" type="password" name="password" id="password" required aria-required="">
                 </div>
-                <button class="btn btn-outline-dark text-white shadow" type="submit">Make Changes</button>
+                <button id="submitBtn" class="btn btn-outline-dark text-white shadow" type="submit">Make Changes</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="/javascripts/pwValidationSettings.js"></script>

@@ -58,3 +58,11 @@ html {
     border-bottom: 1px solid white;
   }
 }
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}
