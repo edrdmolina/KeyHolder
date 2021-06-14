@@ -17,8 +17,11 @@
                     <label for="passwordConfirmation">Confirm Password</label>
                     <input class="form-control bg-dark text-white" type="password" name="passwordConfirmation" id="passwordConfirmation" required aria-required="">
                 </div>
-                <button class="btn btn-outline-dark text-white shadow" type="submit">Reset Password</button>
+                <div id="validationMessage" class="mb-2"></div>
+                <button id="submitBtn" class="btn btn-outline-dark text-white shadow" type="submit">Reset Password</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="/javascripts/pwValidation.js"></script>
