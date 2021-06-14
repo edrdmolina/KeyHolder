@@ -35,7 +35,7 @@ const getRandomASCII = () => {
 
 const generateKey = () => {
     // determines the length of password
-    const passwordLength = 18;
+    const passwordLength = 32;
     // initializes empty string for password storage
     let password = '';
     // generates password
