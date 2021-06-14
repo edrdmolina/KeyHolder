@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Staatliches&display=swap');
+
 body {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.805), rgba(255,0,0,0.805));
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   min-height: 100vh;
+  font-family: 'Roboto Mono', monospace;;
 }
 
 a {
@@ -14,6 +17,7 @@ a {
 
 h1 {
   color: rgba(229, 229, 229, 0.737);
+  font-family: 'Staatliches', cursive;
 }
 
 html {
