@@ -17,6 +17,8 @@ keyEditRandomBtns.forEach((btn, i) => {
     })
 })
 
+// determines the length of password
+const passwordLength = 32;
 
 // Returns a random ASCII character suitable for passwords
 const getRandomASCII = () => {
@@ -24,7 +26,7 @@ const getRandomASCII = () => {
     let r = Math.floor(Math.random() * 89) + 33;
     // if not suitable callback function
     if (r === 34 || r === 37 || r === 39 ||
-        r === 64 || r === 92 || r === 95 ||
+        r === 92 || r === 95 ||
         r >= 44 && r <= 47) {
         return getRandomASCII();
     } else {
@@ -34,8 +36,6 @@ const getRandomASCII = () => {
 }
 
 const generateKey = () => {
-    // determines the length of password
-    const passwordLength = 32;
     // initializes empty string for password storage
     let password = '';
     // generates password
